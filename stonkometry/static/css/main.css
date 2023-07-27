@@ -1,0 +1,78 @@
+/* Nav Styles */
+.ct-nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+@font-face {
+    font-family: "CustomFont";
+    src: url("../GameOfSquids-1GMVL.ttf");
+}
+
+/* Target Main Image */
+.ct-nav img {
+    width: 25%;
+    max-width: 100%;
+    margin-left: 2vw;
+    margin-top: 2vh;
+}
+
+#profile-img {
+    width: 10%;
+    height: 10%;
+}
+
+ul#horizontal-list, #horizontal-list2 {
+    justify-content: center;
+    min-width: 480px;
+    list-style: none;
+    padding-top: 20px;
+}
+
+ul#horizontal-list li,
+ul#horizontal-list a {
+    display: inline;
+    text-decoration: none;
+    padding: 0.5vw;
+    margin-right: 0.2vw;
+    text-align: center;
+}
+
+ul#horizontal-list2 li,
+ul#horizontal-list2 a {
+    display: inline-block;
+    position: relative;
+    left: 65%;
+    transform: translateX(-65%);
+    text-decoration: none;
+    padding: 0.5vw;
+    margin-right: 0.2vw;
+}
+
+/* End of Nav Styles */
+
+body {
+    color: white;
+    /* background-color: #212245; */
+    background-image: url('../images/geobg4.jpg');
+    background-size: 100%;
+    font-family: 'CustomFont';
+}
+/* Hero/Header Portion */
+#header-text {
+    display: flex;
+    flex-direction: column;
+    padding: 2vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#signup-form{
+    float: right;
+}
+
+#vector, #footer-logo {
+    height: 150px;
+    width: 150px;
+}

@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <style>
+        body {
+            background-image: url('../../static/images/geobg3.jpg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
+        <!-- Display the user's watchlist here -->
+    <!-- Flask Flash message to user -->
+{% with messages = get_flashed_messages(with_categories = true) %}
+{% if messages %}
+    {% for cat, msg in messages %}
+        {% if cat == 'auth-success' %}
+            <div class="container">
+                {{ msg }}
+                <button type="button" class="close" data-dismiss="alert" onclick="this.parentElement.style.display='none'">&times;</button>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endwith %}
+<div class="boxes" style="display: flex; justify-content: center; padding-bottom: 5px;">
+    <form name="search" action="" method="get">
+        <span>
+            <button type="button" class="btn btn-danger">-</button>
+            <input type="text" placeholder="Ticker" id="watchlistInput">
+            <button type="button" class="btn btn-success" onclick="updateWatchlist()">+</button>
+            <button type="button" id="createwatch" onclick="createWatchlist()">Create watchlist</button>
+        </span>
+    </form>
+</div>
+<div class="tradingview-widget-container">
+    <div id="tradingview_501eb" style="height: 550px; width: 98%; margin-left: auto; margin-right: auto"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+
+
+var watchlistTickers = ['GME'];
+
+function createWatchlist(){
+localStorage.clear()
+localStorage.setItem(watchlistTickers, watchlistTickers)
+console.log(Object.keys(localStorage))
+window.location.reload()
+}
+
+console.log(Object.keys(localStorage))
+console.log(Object.keys(localStorage).length)
+
+
+        
+                // Function to update the watchlist with user input
+        function updateWatchlist() {
+            // createWatchlist()
+        // Get the user input from the input field
+        var userInput = document.getElementById('watchlistInput').value.trim();
+        // var myStocks = localStorage.setItem(watchlistTickers, watchlistTickers)
+        // console.log(myStocks)
+        // console.log(userInput)
+        
+
+        if (userInput !== "") {
+            // Split the user input by commas to get individual items
+            var inputItems = userInput.split(',');
+            // console.log(inputItems)
+            // Trim each item and add it to the watchlistItems array
+            inputItems.forEach(item => {
+            var trimmedItem = item.trim();
+            if (trimmedItem !== "") {
+                let watchListItems = localStorage.getItem(watchlistTickers)
+                // console.log(watchlistItems)
+                localStorage.setItem(watchlistTickers, watchListItems + ', ' + trimmedItem);
+                
+            }
+            window.location.reload()
+            });}}
+
+            // Update the TradingView widget with the new watchlist
+            // myWidget.chart().executeActionById("addSymbol", { "symbol": userInput });
+        
+        
+
+        // Create the initial watchlist array
+        
+        
+        var myWidget = new TradingView.widget(
+            {
+            "autosize": true,
+            "symbol": "GME",
+            "interval": "D",
+            "timezone": "Etc/UTC",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "hide_side_toolbar": false,
+            "allow_symbol_change": true,
+            "watchlist": (localStorage.getItem(watchlistTickers)) ? localStorage.getItem(watchlistTickers).split(',') : [],
+            "container_id": "tradingview_501eb"
+        }
+        );
+
+        console.log(myWidget)
+        Object.keys(localStorage).forEach(key => {
+        myWidget.options.watchlist = localStorage[key]
+        
+        console.log(localStorage[key])
+        })
+        // function myFunction () {
+        //     localStorage.setItem('watchlist', trimmedItem)
+        //     const myList = localStorage.getItem('watchlist')
+        //     widget = document.querySelector('#tickerinput').value
+        //     console.log(widget)
+        //     const isInStorage = str => localStorage.getItem(str) !== null;
+        //     if (isInStorage('watchlist')){
+        //         localStorage.setItem('watchlist', 'NVDA')
+        //     }
+        //     // console.log(myList)
+        //     localStorage.setItem('watchlist', f`${myList}, ${widget}`)
+        //     // console.log(widget)
+        //     // myWidget.options.watchlist.push(widget)
+        // }
+
+        // // console.log(myWidget.options)
+        // // console.log(myWidget)
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+  <div class="row">
+    <aside class = "col-12 col-md-6">
+        <h3>Profile Details</h3>
+        <li class="list-group-item">Email: {{ current_user.email }}</li>
+        <li class="list-group-item">Token: {{ current_user.token }}</li>
+    </aside>
+</div>
+{% endblock %}

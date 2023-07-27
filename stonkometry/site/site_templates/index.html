@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <!-- Header Section -->
+    <header class="row">
+        <div id="header-text">
+            <h1>STONKOMETRY</h1>
+            <h5>Begin your journey</h5>
+        
+            <div>
+                <button class="btn btn-primary">Thing to Do 1</button>
+                <button class="btn btn-primary">Thing to Do 2</button>
+            </div> 
+            
+        </div>       
+    </header>
+    <!-- End of Header Section -->
+    <!-- Start of Middle Section -->
+    <section class="row">
+        <div class="col-12" id="middle-text">
+            <h2>Save your stock picks to your watchlist</h2>
+        </div>
+    </section>
+    <!-- End of Middle Section -->
+
+    <!-- Collection of Features Section -->
+    <section class="row" id="features-section">
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/vector.jpg" alt="vector" id="vector">
+            <h4>Get Real Time Data</h4>
+            <p>Get Real Time Data</p>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/vector.jpg" alt="vector" id="vector">
+            <h4>Save Stocks</h4>
+            <p>Save your stock picks to your watchlist</p>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/vector.jpg" alt="vector" id="vector">
+            <h4>Check News and Resources</h4>
+            <p>Be up to date on stock markets</p>
+        </div>      
+    </section>
+    <!-- End of Collection of Features -->
+    <!-- Start of Community Section -->
+    <section class="row" id="community-section">
+        <!-- <div class="col-12 col-md-6">
+            <img src="../../static/images/undraw_cosmo_surveillance_kjjg.svg" alt="Cosmos Image" id="cosmo-image">
+        </div> -->
+        <div class="col-12 col-md-6">
+            <h1>Join Fellow Investors</h1>
+            <p>
+                Here's a good investor channel 
+            </p> 
+            <p>
+                Want more info? Check our resources
+            </p>
+            <div>
+                <button class="btn btn-primary" onclick="window.open('https://discord.com/invite/obrinvesting','_blank')">Investor channel link</button>
+                <button class="btn btn-primary" onclick="window.location.href='resources';">Resources</button>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- End of Community Section -->
+    <!-- Start of Footer -->
+    <footer class="row" id="footer">
+        <div class="col-2">
+            <img src="../../static/images/logo-png.png" alt="Stonkometry" id="footer-logo">
+        </div>
+        <div class="col-2">
+            <div class="footer-text-flex">
+                <h4>Platform</h4>
+                <p>About Stonkometry</p>
+                <p>The Stonks</p>
+                <p>Donate</p>
+                <p>Spread The Word</p>
+                <p>Our Process</p>
+            </div>
+        </div>
+        
+    </footer> 
+</div>
+
+{% endblock content %}

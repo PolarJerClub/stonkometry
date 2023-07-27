@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image: url('../../static/images/cliffman.avif');
+        background-repeat: no-repeat;
+        background-size: 50% 140%;
+        background-color: #212245;
+    }
+    #signup-form {
+        float: right;
+        font-weight: bolder;
+        padding-top: 150px;
+        color: white;
+        opacity: .75;
+    }
+
+    h2 {
+        font-size: 50px;
+        color: white;
+        opacity: .5;
+    }
+</style>
+
+<main class="container">
+    <div class="row col-md-6" id="signup-form">
+        <h2>Create Your Free Account</h2>
+        {% include 'forms.html' %}
+    </div>
+</main>
+
+{% endblock content %}

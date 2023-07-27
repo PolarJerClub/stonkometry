@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    html, body {
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+    }
+</style>
+<div class="jumbotron">
+    <h1>
+        Dat News
+    </h1>
+</div>
+
+<div class="container">
+
+    {% for i, tit, aut, des, u in context %}
+
+    <img src="{{i}}" alt="" style="width: 75%;">
+    <h3></h3> {{tit}}
+    <h4></h4> {{aut}}
+    <p></p> {{des}}
+    <a href="{{u}}" target="_blank" style="padding-bottom: 100px;">Article</a>
+
+
+    {% endfor %}
+
+
+
+</div>
+
+
+
+
+
+
+{% endblock content %}
